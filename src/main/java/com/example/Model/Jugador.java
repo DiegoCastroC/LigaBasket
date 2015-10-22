@@ -21,6 +21,9 @@ public class Jugador {
     private int rebotest;
     private String posicion;
 
+    @ManyToOne
+    private Equipo equipo;
+
     public Long getId() {
         return id;
     }
@@ -76,6 +79,10 @@ public class Jugador {
     public void setPosicion(String posicion) {
         this.posicion = posicion;
     }
+
+    public Equipo getEquipo() {return equipo;}
+
+    public void setEquipo(Equipo equipo) {this.equipo = equipo;}
 
     @Override
     public String toString() {

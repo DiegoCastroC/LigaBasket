@@ -1,6 +1,7 @@
 package com.example.Services;
 
 import com.example.Model.Jugador;
+import com.example.Repository.EquipoRespository;
 import com.example.Repository.JugadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,8 @@ public class JugadorServices {
 
     @Autowired
     private JugadorRepository jugadorRepository;
-
+    @Autowired
+    private EquipoRespository equipoRespository;
 
 
     public void addJugador(){
@@ -35,7 +37,11 @@ public class JugadorServices {
         jugador1.setAsistenciast(10);
         jugador1.setRebotest(7);
         jugador1.setPosicion("Pivot");
+        jugador1.setEquipo(equipoRespository.findByNombre("Barcelona"));
+
         jugadorRepository.save(jugador1);
+
+
 
         date.set(1990, 5, 2);
 
@@ -64,7 +70,7 @@ public class JugadorServices {
         Jugador jugador4 = new Jugador();
         jugador4.setNombre("Huto");
         jugador4.setFechadenacimiento(date.getTime());
-        jugador4.setCanastast(9);
+        jugador4.setCanastast(15);
         jugador4.setAsistenciast(10);
         jugador4.setRebotest(1);
         jugador4.setPosicion("Pivot");
